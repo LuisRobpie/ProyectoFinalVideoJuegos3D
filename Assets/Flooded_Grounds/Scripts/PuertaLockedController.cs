@@ -18,6 +18,9 @@ public class PuertaLockedController : MonoBehaviour
     [SerializeField]
     CollectibleManager collectibleManager;
 
+    [SerializeField]
+    CollectorController collector;
+
     void Start()
     {
         angle = transform.eulerAngles.y;
@@ -32,20 +35,23 @@ public class PuertaLockedController : MonoBehaviour
             transform.Rotate(direction * speed * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Fire1") && Locked == false)
-        {
-            angle = 100;
-            direction = Vector3.up;
-        }
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" & amKeys.Equals("1"))
+        if (other.gameObject.tag == "Player" )
         {
-            Locked = false;
-            collectibleManager.UpdateTextbox(Key, 0);
-            
+            if (Input.GetButtonDown("Fire1") && Locked == true && amKeys.Equals("1"))
+            {
+                Locked = false;
+                angle = 100;
+                direction = Vector3.up;
+                collector.Decrease(Key, 1);
+                collectibleManager.UpdateTextbox(Key, 0);
+
+            }
+
         }
     }
 
