@@ -5,8 +5,7 @@ using UnityEngine.Rendering;
 
 public class pieza : MonoBehaviour
 {
-    [SerializeField]
-    GameObject Fondo;
+    
 
     private Vector3 PosicionCorrecta;
     public bool Encajada;
@@ -29,7 +28,7 @@ public class pieza : MonoBehaviour
                     transform.position = PosicionCorrecta;
                     Encajada = true;
                     GetComponent<SortingGroup>().sortingOrder = 0;
-                    Camera.main.GetComponent<juego>().PiezasEncajadas++;
+                    Camera.main.GetComponent<dragAndDrop>().PiezasEncajadas++;
                 }
             }
         }
