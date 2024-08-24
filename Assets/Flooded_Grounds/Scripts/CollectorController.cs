@@ -5,6 +5,8 @@ public class CollectorController : MonoBehaviour
 {
     private IDictionary<CollectibleType, float> _collectibles;
 
+    public string actualKey;
+
     private void Awake()
     {
         _collectibles = new Dictionary<CollectibleType, float>();

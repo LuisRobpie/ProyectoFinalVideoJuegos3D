@@ -42,15 +42,32 @@ public class PuertaLockedController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" )
         {
-            if (Input.GetButtonDown("Fire1") && Locked == true && amKeys.Equals("1"))
+            if (gameObject.CompareTag("PuertaFinal"))
             {
-                Locked = false;
-                angle = 100;
-                direction = Vector3.up;
-                collector.Decrease(Key, 1);
-                collectibleManager.UpdateTextbox(Key, 0);
-
+                if (Input.GetButtonDown("Fire1") && Locked == true && amKeys.Equals("1") && other.GetComponent<CollectorController>().actualKey == ("Last"))
+                {
+                    Locked = false;
+                    angle = 95;
+                    direction = Vector3.up;
+                    collector.Decrease(Key, 1);
+                    collectibleManager.UpdateTextbox(Key, 0);
+                    other.GetComponent<CollectorController>().actualKey = null;
+                }
             }
+            else
+            {
+                if (Input.GetButtonDown("Fire1") && Locked == true && amKeys.Equals("1"))
+                {
+                    Locked = false;
+                    angle = 95;
+                    direction = Vector3.up;
+                    collector.Decrease(Key, 1);
+                    collectibleManager.UpdateTextbox(Key, 0);
+                    other.GetComponent<CollectorController>().actualKey = null;
+
+                }
+            }
+
 
         }
     }

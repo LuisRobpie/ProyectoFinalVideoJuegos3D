@@ -14,8 +14,10 @@ public class CollectibleController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             CollectorController controller = other.GetComponent<CollectorController>();
             controller.Increase(collectibleType, value);
+            other.GetComponent<CollectorController>().actualKey = this.gameObject.tag;
             Destroy(gameObject);
         }
     }

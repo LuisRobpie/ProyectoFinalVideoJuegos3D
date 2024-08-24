@@ -7,6 +7,10 @@ TagManager:
   - Puzzle
   - PlayerInteractionZone
   - Knife
+  - Last
+  - Second
+  - First
+  - PuertaFinal
   layers:
   - Default
   - TransparentFX
