@@ -8,6 +8,9 @@ public class Puzzle2 : MonoBehaviour
     Animator[] animators;
 
     [SerializeField]
+    Animator key;
+
+    [SerializeField]
     PickUpObject objeto;
 
 
@@ -17,7 +20,6 @@ public class Puzzle2 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("revisando cuchillo");
                 checkKnife();
             }
         }
@@ -28,12 +30,11 @@ public class Puzzle2 : MonoBehaviour
         {
             if (objeto.PickedObject.CompareTag("Knife"))
             {
-                Debug.Log("cuchillo");
                 foreach (var animator in animators)
                 {
-                    Debug.Log("cortando");
                     animator.SetTrigger("CutRope");
                 }
+                key.SetTrigger("dropKey");
             }
         }
     }
