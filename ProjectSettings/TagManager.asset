@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Puzzle
   - PlayerInteractionZone
+  - Knife
   layers:
   - Default
   - TransparentFX
