@@ -24,7 +24,7 @@ public class DialogueController : MonoBehaviour
     private void Update()
     {
        
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.Mouse0))
         {
             interactuarBtn.SetActive(false); 
             dialogueManager.StartDialogue(dialogue); 

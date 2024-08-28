@@ -11,6 +11,7 @@ TagManager:
   - Second
   - First
   - PuertaFinal
+  - NPCmsg
   layers:
   - Default
   - TransparentFX

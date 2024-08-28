@@ -40,12 +40,12 @@ public class Puzzle1 : MonoBehaviour
     {
         if(activePlates == plateAmount)
         {
-            Debug.Log("Completado");
+            
             Key.SetActive(true);
         }
         else if (activePlates != plateAmount)
         {
-            Debug.Log("Incompleto");
+            
             activePlates = 0;
         }
     }

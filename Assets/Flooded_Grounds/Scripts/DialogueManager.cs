@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     {
         _sentences = new Queue<string>();
         sentencesText = dialoguePanel.GetComponentInChildren<TextMeshProUGUI>();
+        
         dialoguePanel.SetActive(false);
     }
 
@@ -31,8 +32,8 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator StartDialogueCoroutine(Dialogue dialogue)
     {
         yield return new WaitForSeconds(0.5F);
-
         _sentences.Clear();
+        
         foreach (string sentence in dialogue.getSentences())
         {
             _sentences.Enqueue(sentence);
