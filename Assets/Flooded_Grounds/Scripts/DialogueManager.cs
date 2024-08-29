@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,15 +11,22 @@ public class DialogueManager : MonoBehaviour
     GameObject dialoguePanel;
 
     private Queue<string> _sentences;
-    private TextMeshProUGUI sentencesText;
+    private Text sentencesText;
 
     public static bool isDialogueActive { get; private set; } = false;
+
+    private void Update()
+    {
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            DisplayNextSentence();
+        }
+    }
 
     private void Awake()
     {
         _sentences = new Queue<string>();
-        sentencesText = dialoguePanel.GetComponentInChildren<TextMeshProUGUI>();
-        
+        sentencesText = dialoguePanel.GetComponentInChildren<Text>(); 
         dialoguePanel.SetActive(false);
     }
 
