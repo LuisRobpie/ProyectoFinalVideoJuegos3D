@@ -10,7 +10,8 @@ public class EndCinematic : MonoBehaviour
     public GameObject player;
     public GameObject EndCinematicCamera;
     public GameObject EndCinematicPanel;
-
+    public GameObject Keys;
+    public GameObject TimerText;
     private Animator endCinematicAnimator;
 
     private void Start()
@@ -24,6 +25,8 @@ public class EndCinematic : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Keys.SetActive(false);
+            TimerText.SetActive(false);
             player.SetActive(false);
             EndCinematicCamera.SetActive(true);
             Invoke("ShowEndCinematicPanel", 20f);
@@ -39,6 +42,16 @@ public class EndCinematic : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ResetScene();
+    }
+
+    private void ResetScene()
+    {
+        player.SetActive(true);
+        EndCinematicCamera.SetActive(false);
+        EndCinematicPanel.SetActive(false);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }
