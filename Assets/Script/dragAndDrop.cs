@@ -9,7 +9,7 @@ public class dragAndDrop : MonoBehaviour
 
 
     public GameObject PiezaSeleccionada;
-    int capa = 1;
+
     public int PiezasEncajadas = 0;
 
     void Start()
